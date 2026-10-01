@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0d12" />
+    <title>AutoVista — каталог автомобілів</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <!-- Relative paths keep the catalogue styled when index.html is opened directly from disk. -->
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="header container">
+        <a class="brand" href="#top" aria-label="AutoVista, на головну"><span class="brand-mark">A</span><span>AutoVista</span></a>
+        <nav class="nav" aria-label="Основна навігація"><a class="active" href="#catalog">Каталог</a><a href="#compare">Порівняння <span id="navCompareCount"></span></a><a href="#about">Про нас</a></nav>
+        <div class="header-actions"><button class="icon-button" id="themeToggle" aria-label="Змінити тему">☼</button><button class="login-button">Увійти <span>→</span></button><button class="menu-button" aria-label="Відкрити меню">☰</button></div>
+      </header>
+
+      <main id="top">
+        <section class="hero container">
+          <div class="eyebrow"><i></i> Розумний вибір</div>
+          <h1>Знайдіть автомобіль,<br /><em>який надихає.</em></h1>
+          <p>Обирайте серед перевірених моделей, порівнюйте характеристики та відкривайте нові можливості руху.</p>
+          <a class="primary-button" href="#catalog">Переглянути каталог <span>↘</span></a>
+          <div class="hero-stats"><div><strong>12 000<span>+</span></strong><small>автомобілів</small></div><div><strong>45</strong><small>брендів</small></div><div><strong>4.9 <span>★</span></strong><small>рейтинг користувачів</small></div></div>
+          <div class="hero-car" aria-label="Преміальний автомобіль"></div>
+        </section>
+
+        <section class="finder-wrap container" aria-label="Пошук автомобіля">
+          <div class="finder-heading"><span class="finder-dot"></span><span>Підберіть свій автомобіль</span></div>
+          <form class="finder" id="filterForm">
+            <label>Марка<select id="brandFilter"><option value="all">Усі марки</option><option>BMW</option><option>Audi</option><option>Mercedes-Benz</option><option>Porsche</option></select></label>
+            <label>Модель<select id="modelFilter"><option value="all">Будь-яка модель</option><option value="i7">i7</option><option value="q8">Q8 e-tron</option><option value="g-class">G-Class</option><option value="taycan">Taycan</option></select></label>
+            <label>Ціна<select id="priceFilter"><option value="all">Будь-яка ціна</option><option value="100000">До $100 000</option><option value="150000">До $150 000</option><option value="200000">До $200 000</option></select></label>
+            <button class="search-button" type="submit"><span>⌕</span> Знайти авто</button>
+          </form>
+          <button class="advanced-toggle" id="advancedToggle" type="button">Розширений пошук <span>⌄</span></button>
+          <div class="advanced-filters" id="advancedFilters" hidden><label>Тип палива<select id="fuelFilter"><option value="all">Будь-який</option><option value="Електро">Електро</option><option value="Гібрид">Гібрид</option><option value="Бензин">Бензин</option></select></label><label>Кузов<select><option>Усі типи</option><option>SUV</option><option>Седан</option><option>Купе</option></select></label><label>Привід<select><option>Будь-який</option><option>Повний</option><option>Задній</option></select></label></div>
+        </section>
+
+        <section class="catalog-section container" id="catalog">
+          <div class="section-header"><div><div class="eyebrow"><i></i> Обране для вас</div><h2>Популярні автомобілі</h2></div><a href="#catalog">Усі автомобілі <span>→</span></a></div>
+          <div class="catalog-toolbar"><span id="resultCount">4 автомобілі</span><div><label class="sort-label">Сортувати: <select id="sortSelect"><option value="popular">За популярністю</option><option value="low">Від дешевих</option><option value="high">Від дорогих</option></select></label><button class="view-button active" id="gridView" aria-label="Вигляд сіткою">▦</button><button class="view-button" id="listView" aria-label="Вигляд списком">☷</button></div></div>
+          <div class="car-grid" id="carGrid"></div>
+        </section>
+
+        <section class="compare-section" id="compare"><div class="container compare-inner"><div><div class="eyebrow light"><i></i> Точне зіставлення</div><h2>Порівнюйте до 4 автомобілів<br />за кожною деталлю.</h2><p>Додавайте моделі до списку й миттєво знаходьте різницю у характеристиках, ціні та комплектації.</p><button class="outline-button" id="compareButton">Відкрити порівняння <span>→</span></button></div><div class="compare-preview" id="comparePreview"><div class="compare-empty">Оберіть до 4 авто<br /><small>у картках каталогу</small></div></div></div></section>
+      </main>
+      <footer id="about" class="container"><a class="brand" href="#top"><span class="brand-mark">A</span><span>AutoVista</span></a><span>© 2024 AutoVista. Ваш шлях починається тут.</span><span>Instagram &nbsp; Facebook &nbsp; YouTube</span></footer>
+    </div>
+    <dialog id="compareDialog"><button class="dialog-close" id="dialogClose" aria-label="Закрити">×</button><div class="eyebrow"><i></i> Ваш вибір</div><h2>Порівняння автомобілів</h2><div id="comparisonTable"></div></dialog>
+    <script src="./src/main.js"></script>
+  </body>
+</html>
